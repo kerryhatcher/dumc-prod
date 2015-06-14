@@ -1,15 +1,23 @@
 {% extends "base.html" %}
 
 
+{% block scripts %}
+{{mymap.js}}
+{{super()}}
+{% endblock %}
+
+
 {% block content %}
 {{super()}}
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>Welcome to Dixon UMC</h1>
+        <h1>About Dixon UMC</h1>
       </div>
-      More info to come
+      {{mymap.html}}
     </div>
 
 
 {% endblock %}
+
+{{mymap.html}}

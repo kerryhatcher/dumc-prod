@@ -1,5 +1,5 @@
-from churchrunner import create_app
+from churchrunner import app
 
 
 if __name__ == '__main__':
-    create_app().run(debug=True)
+    app.run(debug=True)
