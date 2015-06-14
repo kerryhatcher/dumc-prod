@@ -1,1 +1,1 @@
-web: gunicorn dixonumc:app --log-file=-
+web: gunicorn churchrunner:create_app --log-file=-
