@@ -2,6 +2,8 @@ cffi==1.1.2
 cryptography==0.9.1
 enum34==1.0.4
 Flask==0.10.1
+flask-appconfig==0.9.1
+Flask-Bootstrap==3.3.4.1
 gunicorn==19.3.0
 idna==2.0
 ipaddress==1.0.7
