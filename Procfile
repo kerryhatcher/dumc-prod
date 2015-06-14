@@ -1,0 +1,1 @@
+web: gunicorn dixonumc:app --log-file=-
