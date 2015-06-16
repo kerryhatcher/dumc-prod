@@ -1,15 +1,134 @@
 {% extends "base.html" %}
+{{url_for('static', filename='restart/')}}
 
+{% block slider_wrapper %}
+<section id="slider_wrapper" class="slider_wrapper full_page_photo">
+     <div id="main_flexslider" class="flexslider">
+          <ul class="slides">
+               <li class="item" style="background-image: url({{url_for('static', filename='restart/images/1.jpg')}})">
+                    <div class="container">
+                         <div class="carousel-caption">
+                              <h1>A <strong>loving</strong> family<br>
+                                   you can <strong>trust</strong> &amp; and <strong>grow</strong> with!</h1>
+                              <p class="lead skincolored"><strong>Dixon</strong> UMC is small church with <strong>strong roots</strong> and a <strong>diverse</strong> congergation, serving eastern Crawford County and West Bibb. Feel free come vist with us any time!</p>
+                               </div>
+                    </div>
+               </li>
+               <li class="item" style="background-image: url({{url_for('static', filename='restart/images/2.jpg')}})">
+                    <div class="container">
+                         <div class="carousel-caption">
+                              <h1>makes <strong>real use</strong><br>
+                                   of the power of <strong>{LESS}</strong> syntax!</h1>
+                              <p class="lead skincolored">Restart was built with heavy use of {less} technology, making the life of the web developer easier!</p>
+                         </div>
+                    </div>
+               </li>
+               <li class="item" style="background-image: url({{url_for('static', filename='restart/images/3.jpg')}})">
+                    <div class="container">
+                         <div class="carousel-caption">
+                              <h1 class="skincolored"><strong>subtle</strong> animations<br>
+                                   &amp; a <strong>fresh</strong> collapsing <strong>header effect</strong></h1>
+                              <p class="lead">if you are looking for <a href="#"><strong>a bold approach</strong></a> you will love the header effect,<br>
+                                   but even if you like <a href="#"><strong>a more conservative feel</strong></a>, you can always try the boxed alternative!</p>
+                         </div>
+                    </div>
+               </li>
+          </ul>
+     </div>
+</section>
+
+{% endblock %}
 
 {% block content %}
-{{super()}}
-    <!-- Begin page content -->
-    <div class="container">
-      <div class="page-header">
-        <h1>Welcome to Dixon UMC</h1>
-      </div>
-      More info to come
-    </div>
+     <section class="call_to_action">
+          <div class="container">
+               <h3>focus on what’s important</h3>
+               <h4>and  make the world little bit better</h4>
+               <a class="btn btn-primary btn-lg" href="#">Contact Us</a>
+          </div>
+     </section>
+     <section class="features_teasers_wrapper">
+          <div class="container">
+               <div class="row">
+                    <div class="feature_teaser col-sm-4 col-md-4"> <img alt="responsive" src="{{url_for('static', filename='restart/images/responsive.png')}}">
+                         <h3>Clean, Responsive Design</h3>
+                         <p>A multipurpose but mainly<strong> business oriented</strong> design, built to serve as a foundation for your web projects. Suspendisse nec risus fermentum sapien congue fermentum sed at lorem.</p>
+                    </div>
+                    <div class="feature_teaser col-sm-4 col-md-4"> <img alt="responsive" src="{{url_for('static', filename='restart/images/git.png')}}">
+                         <h3>Based on Twitter Bootstrap</h3>
+                         <p>The front-end development framework with a <strong>steep learning curve</strong>. It changes the way you develop sites. Suspendisse nec risus fermentum sapien congue fermentum sed at lorem.</p>
+                    </div>
+                    <div class="feature_teaser col-sm-4 col-md-4"> <img alt="responsive" src="{{url_for('static', filename='restart/images/less.png')}}">
+                         <h3>Makes real use of {LESS}</h3>
+                         <p><strong>ChurchRunner</strong> comes with a style.less file that tries to use all the power of <strong>{less} and bootstrap combined</strong>. Suspendisse nec risus fermentum sapien congue fermentum sed at lorem.</p>
+                    </div>
+               </div>
+          </div>
+     </section>
+     <section class="portfolio_teasers_wrapper">
+          <div class="container">
+               <h2 class="section_header fancy centered">Recent Photo Galleries<small>See what its like at Dixon</small></h2>
+               <div class="portfolio_strict row">
+                    <div class="col-sm-4 col-md-4">
+                         <div class="portfolio_item wow animated flipInX"> <a href="#" data-path-hover="M 180,190 0,158 0,0 180,0 z">
+                              <figure style="background-image:url({{url_for('static', filename='restart/images/portfolio/p4.jpg')}})">
+                                   <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+                                        <path d="M 180,0 0,0 0,0 180,0 z"/>
+                                   </svg>
+                                   <figcaption>
+                                        <p>Description of the project dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum....</p>
+                                        <div class="view_button">View</div>
+                                   </figcaption>
+                              </figure>
+                              </a>
+                              <div class="portfolio_description">
+                                   <h3><a href="#">Vacation Bible School</a></h3>
+                                   <p>Summer fun for community kids!</p>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                         <div class="portfolio_item wow animated flipInX"> <a href="#" data-path-hover="M 180,190 0,158 0,0 180,0 z">
+                              <figure style="background-image:url({{url_for('static', filename='restart/images/portfolio/a5.jpg')}})">
+                                   <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+                                        <path d="M 180,0 0,0 0,0 180,0 z"/>
+                                   </svg>
+                                   <figcaption>
+                                        <p>Description of the project dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum....</p>
+                                        <div class="view_button">View</div>
+                                   </figcaption>
+                              </figure>
+                              </a>
+                              <div class="portfolio_description">
+                                   <h3><a href="portfolio_item.html">Youth Group Rafting Trip</a></h3>
+                                   <p>Dixon and Roberta youth take trip to mountains</p>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                         <div class="portfolio_item wow animated flipInX"> <a href="#" data-path-hover="M 180,190 0,158 0,0 180,0 z">
+                              <figure style="background-image:url({{url_for('static', filename='restart/images/portfolio/p1.jpg')}})">
+                                   <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+                                        <path d="M 180,0 0,0 0,0 180,0 z"/>
+                                   </svg>
+                                   <figcaption>
+                                        <p>Description of the project dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum....</p>
+                                        <div class="view_button">View</div>
+                                   </figcaption>
+                              </figure>
+                              </a>
+                              <div class="portfolio_description">
+                                   <h3><a href="portfolio_item.html">Adult Retreat</a></h3>
+                                   <p>Adults take camping and fishing trip</p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+
+
 
 
 {% endblock %}

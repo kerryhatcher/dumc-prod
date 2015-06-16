@@ -4,8 +4,13 @@ import requests
 
 
 def getVOTD():
-    r = requests.get('http://labs.bible.org/api/?passage=votd&type=text&formatting=full')
-    return r.content
+    votd = ''
+    try:
+        r = requests.get('http://labs.bible.org/api/?passage=votd&type=text&formatting=full')
+        votd = r.content
+    except:
+        votd = 'no nonnection'
+    return votd
 
 
 
