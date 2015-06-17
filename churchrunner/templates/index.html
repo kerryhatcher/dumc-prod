@@ -1,15 +1,74 @@
 {% extends "base.html" %}
+{{url_for('static', filename='restart/')}}
 
+{% block slider_wrapper %}
+<section id="slider_wrapper" class="slider_wrapper full_page_photo">
+     <div id="main_flexslider" class="flexslider">
+          <ul class="slides">
+               <li class="item" style="background-image: url({{url_for('static', filename='restart/images/1.jpg')}})">
+                    <div class="container">
+                         <div class="carousel-caption">
+                              <h1>A <strong>loving</strong> family<br>
+                                   you can <strong>trust</strong> &amp; and <strong>grow</strong> with!</h1>
+                              <p class="lead skincolored"><strong>Dixon</strong> UMC is small church with <strong>strong roots</strong> and a <strong>diverse</strong> congergation, serving eastern Crawford County and West Bibb. Feel free come vist with us any time!</p>
+                               </div>
+                    </div>
+               </li>
+               <li class="item" style="background-image: url({{url_for('static', filename='restart/images/2.jpg')}})">
+                    <div class="container">
+                         <div class="carousel-caption">
+                              <h1>We invite <strong>You</strong><br>
+                                   for this <strong>Sunday</strong>!</h1>
+                              <p class="lead skincolored">You'll be glad you came!</p>
+                         </div>
+                    </div>
+               </li>
+               <li class="item" style="background-image: url({{url_for('static', filename='restart/images/3.jpg')}})">
+                    <div class="container">
+                         <div class="carousel-caption">
+                              <h1 class="skincolored"><strong>Long</strong> history<br>
+                                   &amp; a <strong>Bright</strong> future </h1>
+                              <p class="lead">No one knows just how long a church has been here. <br> We know it will be here<strong> for a long time</strong> to come!</p>
+                         </div>
+                    </div>
+               </li>
+          </ul>
+     </div>
+</section>
+
+{% endblock %}
 
 {% block content %}
-{{super()}}
-    <!-- Begin page content -->
-    <div class="container">
-      <div class="page-header">
-        <h1>Welcome to Dixon UMC</h1>
-      </div>
-      More info to come
-    </div>
+     <section class="call_to_action">
+          <div class="container">
+               <h3>focus on what’s important</h3>
+               <h4>and  make the world little bit better</h4>
+          </div>
+     </section>
+     <section class="features_teasers_wrapper">
+          <div class="container">
+               <div class="row">
+                    <div class="feature_teaser col-sm-4 col-md-4"> <img alt="responsive" src="{{url_for('static', filename='restart/images/responsive.png')}}">
+                         <h3>Traditional Service</h3>
+                         <p>9:45am</p>
+                         <p>Come experence our traditional but <strong> laid back</strong> style of worship. T-shirts and shorts welcome!</p>
+                    </div>
+                    <div class="feature_teaser col-sm-4 col-md-4"> <img alt="responsive" src="{{url_for('static', filename='restart/images/git.png')}}">
+                         <h3>Friends and Family</h3>
+                         <p>10:30am</p>
+                         <p>A church is a family, and you can't have family without <strong>fellowship!</strong>. Come join us for food, fun, and friends!</p>
+                    </div>
+                    <div class="feature_teaser col-sm-4 col-md-4"> <img alt="responsive" src="{{url_for('static', filename='restart/images/less.png')}}">
+                         <h3>Sunday School</h3>
+                         <p>11:00am</p>
+                         <p>A strong foundation in the <strong>Bible</strong> is important to any Christian. We have classes for everyone with a focus on  <strong>discussion</strong> not lecture.</p>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+
+
 
 
 {% endblock %}
