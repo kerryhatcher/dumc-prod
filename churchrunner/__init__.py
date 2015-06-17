@@ -6,7 +6,14 @@ from flask_bootstrap import Bootstrap
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
 from smartencoding import smart_unicode
+from flask.ext.mongoengine import MongoEngine
+
 from pyBibleOrg import getVOTD
+
+def register_blueprints(app):
+    # Prevents circular imports
+    from churchrunner.views import posts
+    app.register_blueprint(posts, url_prefix='/posts')
 
 
 app = Flask(__name__)
@@ -18,6 +25,11 @@ app.config['SECRET_KEY'] = 'devkey'
 app.config['RECAPTCHA_PUBLIC_KEY'] = \
     '6Lfol9cSAAAAADAkodaYl9wvQCwBMr3qGR_PPHcw'
 
+app.config["MONGODB_SETTINGS"] = {'DB': "my_tumble_log"}
+
+#db = MongoEngine(app)
+
+#register_blueprints(app)
 
 @app.route('/')
 def home():
