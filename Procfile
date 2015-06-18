@@ -1,1 +1,1 @@
-web: gunicorn churchrunner:app:app --log-file=-
+web: gunicorn churchrunner:app --log-file=-
