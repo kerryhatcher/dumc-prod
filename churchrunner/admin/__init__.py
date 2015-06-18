@@ -28,15 +28,7 @@ admin_pages = Blueprint('admin_pages', __name__,
 @requires_auth
 def index():
 
-    admintest = Role.objects.get(name='admin')
-    print admintest
 
-    #    role = Role(
-    #        name='admin',
-    #        slug='admin'
-    #    )
-     #   role.save()
-     #   print "test"
     return "All good. You only get this message if you're authenticated"
 
 

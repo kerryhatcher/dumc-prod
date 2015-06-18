@@ -1,6 +1,7 @@
 PyJWT
 flask-cors
 flask-heroku
+raygun4py
 cffi==1.1.2
 cryptography==0.9.1
 enum34==1.0.4

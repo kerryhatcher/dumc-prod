@@ -6,7 +6,9 @@ from smartencoding import smart_unicode
 from flask.ext.mongoengine import MongoEngine
 from flask.ext.heroku import Heroku
 import os
-
+from raygun4py import raygunprovider
+from raygun4py.middleware import flask
+import sys
 
 from pyBibleOrg import getVOTD
 
@@ -23,6 +25,7 @@ app = Flask(__name__)
 Bootstrap(app)
 GoogleMaps(app)
 heroku = Heroku(app)
+flask.Provider(app, os.environ.get('RAYGUN_APIKEY')).attach()
 # in a real app, these should be configured through Flask-Appconfig
 app.config['SECRET_KEY'] = os.environ.get('FLASK-KEY')
 
@@ -64,3 +67,10 @@ def inject_VOTD():
 def inject_login_callback():
     callbackURL = request.url_root + 'admin/callback'
     return dict(callbackURL=callbackURL)
+
+
+def handle_exception(exc_type, exc_value, exc_traceback):
+    sender = raygunprovider.RaygunSender(os.environ.get('RAYGUN_APIKEY'))
+    sender.send_exception(exc_info=(exc_type, exc_value, exc_traceback))
+
+sys.excepthook = handle_exception
