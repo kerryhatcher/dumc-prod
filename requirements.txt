@@ -1,3 +1,6 @@
+PyJWT
+flask-cors
+flask-heroku
 cffi==1.1.2
 cryptography==0.9.1
 enum34==1.0.4
@@ -18,7 +21,7 @@ mongoengine==0.9.0
 ndg-httpsclient==0.4.0
 pyasn1==0.1.7
 pycparser==2.14
-pymongo==3.0.2
+pymongo==2.8.1
 pyOpenSSL==0.15.1
 requests==2.7.0
 six==1.9.0

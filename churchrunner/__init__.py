@@ -1,35 +1,37 @@
-__author__ = 'khatcher'
-
-
-from flask import Flask, render_template, Markup
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
 from smartencoding import smart_unicode
 from flask.ext.mongoengine import MongoEngine
+from flask.ext.heroku import Heroku
+import os
+
 
 from pyBibleOrg import getVOTD
 
+
 def register_blueprints(app):
     # Prevents circular imports
-    from churchrunner.views import posts
-    app.register_blueprint(posts, url_prefix='/posts')
+    #from churchrunner.views import posts
+    from churchrunner.admin import admin_pages
+    #app.register_blueprint(posts, url_prefix='/posts')
+    app.register_blueprint(admin_pages, url_prefix='/admin')
 
 
 app = Flask(__name__)
 Bootstrap(app)
 GoogleMaps(app)
-
+heroku = Heroku(app)
 # in a real app, these should be configured through Flask-Appconfig
-app.config['SECRET_KEY'] = 'devkey'
-app.config['RECAPTCHA_PUBLIC_KEY'] = \
-    '6Lfol9cSAAAAADAkodaYl9wvQCwBMr3qGR_PPHcw'
+app.config['SECRET_KEY'] = os.environ.get('FLASK-KEY')
 
-app.config["MONGODB_SETTINGS"] = {'DB': "my_tumble_log"}
 
-#db = MongoEngine(app)
+app.config['MONGODB_USERNAME'] = app.config['MONGODB_USER']
 
-#register_blueprints(app)
+db = MongoEngine(app)
+
+register_blueprints(app)
 
 @app.route('/')
 def home():
@@ -58,7 +60,7 @@ def inject_VOTD():
     votd=smart_unicode(getVOTD())
     return dict(votd=votd)
 
-
-
-
-
+@app.context_processor
+def inject_login_callback():
+    callbackURL = request.url_root + 'admin/callback'
+    return dict(callbackURL=callbackURL)

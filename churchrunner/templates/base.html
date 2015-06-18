@@ -41,7 +41,7 @@
                </div>
           </div>
           <div id="social_media_wrapper"> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#googleplus"><i class="fa fa-google-plus"></i></a> </div>
-          <div id="sign"><a href="#"><i class="fa fa-user"></i><span>Register/Sign in</span></a></div>
+          <div id="sign"><a onclick="signin()"><i class="fa fa-user"></i><span>Register/Sign in</span></a></div>
      </div>
 </header>
 
@@ -132,6 +132,22 @@
 <script type="text/javascript" src="{{url_for('static', filename='restart/js/snap.svg-min.js')}}"></script>
 <script type="text/javascript" src="{{url_for('static', filename='restart/js/restart_theme.js')}}"></script>
 <!-- <script type="text/javascript" src="js/collapser.js"></script> -->
+        <script src="https://cdn.auth0.com/js/lock-7.1.min.js"></script>
+<script type="text/javascript">
+
+  var lock = new Auth0Lock('kajtWA6c7nhknQAJzOQdmp8vMTrJ75co', 'app37888425.auth0.com');
+
+
+  function signin() {
+    lock.show({
+        callbackURL: '{{ callbackURL }}'
+      , responseType: 'code'
+      , authParams: {
+        scope: 'openid profile'
+      }
+    });
+  }
+</script>
     {% endblock %}
 </body>
 </html>
